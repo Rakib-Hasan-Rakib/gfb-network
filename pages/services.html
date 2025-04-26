@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Services</title>
+  <link rel="stylesheet" href="../styles/style.css">
+</head>
+<body>
+
+    <h1 class="service_title">Our Services</h1>
+
+    <div id="servicesContainer"></div>
+<script>
+fetch('http://localhost:3000/services')
+  .then(res => res.json())
+  .then(services => {
+    const container = document.getElementById('servicesContainer');
+    services.forEach(service => {
+      const div = document.createElement('div');
+      div.className = 'service';
+      div.innerHTML = `
+        <h2>${service.title}</h2>
+        <p>${service.description}</p>
+        <button data-id="${service.id}" class="likeBtn">👍 Like (<span id="like-count-${service.id}">0</span>)</button>
+        
+      `;
+      container.appendChild(div);
+
+      fetch(`http://localhost:3000/services/${service.id}/likes`)
+        .then(res => res.json())
+        .then(data => {
+          document.getElementById(`like-count-${service.id}`).textContent = data.likes;
+        });
+    })
+  });
+
+
+document.addEventListener('click', (e) => {
+  if (e.target.classList.contains('likeBtn')) {
+    const serviceId = e.target.dataset.id;
+    fetch(`http://localhost:3000/services/${serviceId}/like`, { method: 'POST' })
+      .then(() => {
+        const countSpan = document.getElementById(`like-count-${serviceId}`);
+        countSpan.textContent = parseInt(countSpan.textContent) + 1;
+      });
+  }
+});
+</script> 
+
+</body>
+</html>

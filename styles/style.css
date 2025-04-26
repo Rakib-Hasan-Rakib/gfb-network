@@ -112,3 +112,54 @@
   .section-padding {
     padding: 60px 20px;
   }
+
+  /* styles for join us page  */
+
+  .hero-join {
+    background: url('../images/join_us_banner.jpg') top/cover no-repeat;
+    height: 65vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.6);
+  }
+  .section-padding {
+    padding: 60px 20px;
+  }
+ 
+ 
+ /* styles for donation page  */
+
+  .hero-donate {
+      background: url('../images/donation_banner.jpg') center/cover no-repeat;
+      height: 65vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
+    }
+    .section-padding {
+      padding: 60px 20px;
+    }
+
+     /* styles for partner with us page  */
+
+
+    .hero-partner {
+      background: url('../images/partner_banner.jpg') center/cover no-repeat;
+      height: 65vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
+    }
+    .section-padding {
+      padding: 60px 20px;
+    }
+
+    .service_title { color: #28a745; text-align: center; }
+    .service { background: white; padding: 1rem; margin: 1rem 0; border-left: 5px solid #28a745; border-radius: 5px; box-shadow: 0 2px 6px rgba(0,0,0,0.05); }
+    .service h2 { margin-top: 0; color: #28a745; }
